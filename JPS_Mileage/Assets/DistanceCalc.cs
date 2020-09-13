@@ -49,13 +49,13 @@ public class DistanceCalc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       /*
             if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation)) //check if they allowed location.
             {
                 Permission.RequestUserPermission(Permission.FineLocation);
                 Start();
             }
-
+            */
 
     }
 
