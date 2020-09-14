@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
+using UnityEngine.UI;
 
 public class DistanceCalc : MonoBehaviour
 {
+    public Text notificationText;
     public float clong, clat;
     // Start is called before the first frame update
     IEnumerator Start()
@@ -63,7 +65,7 @@ public class DistanceCalc : MonoBehaviour
 
     public Location CheckLocation()
     {
-        if (Input.location.status == LocationServiceStatus.Running)
+        if (Input.location.status != LocationServiceStatus.Initializing)
         {
             float closest=9999999999999;
             Location closestLocation = new Location("KF", 42.906396f, -85.857154f);
@@ -71,7 +73,7 @@ public class DistanceCalc : MonoBehaviour
             clat = Input.location.lastData.latitude;
             clong = Input.location.lastData.longitude;
 
-            for (int i = 0; i < gameObject.GetComponent<LocationList>().buildingsList.Count; i++) //loop through building list to chec kwhich is closest
+            for (int i = 0; i < gameObject.GetComponent<LocationList>().buildingsList.Count; i++) //loop through building list to check which is closest
             {
                 float calcdistance = LatLongDistance(clat, gameObject.GetComponent<LocationList>().buildingsList[i].coordx, clong, gameObject.GetComponent<LocationList>().buildingsList[i].coordy);
                 if (calcdistance<closest)
@@ -80,9 +82,13 @@ public class DistanceCalc : MonoBehaviour
                     closestLocation = gameObject.GetComponent<LocationList>().buildingsList[i];
                 }
             }
-            if(closest<500)
+            if(closest<=500) //has to be within .5km to work
             {
                 return closestLocation;
+            }
+            else
+            {
+                notificationText.text = "Too far away from any known locations";
             }
         }
         return null;

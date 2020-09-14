@@ -35,9 +35,14 @@ public class SaveLoad : MonoBehaviour
         string currentLocation = "";
         dt = DateTime.Now;
         if (!ismanual)
-            currentLocation = GetComponent<DistanceCalc>().CheckLocation().Bname; //change for testing
+        {
+            Location loc = GetComponent<DistanceCalc>().CheckLocation();
+            currentLocation = loc.Bname; //change for testing
+        }
         else
+        {
             currentLocation = dropMenu.options[dropMenu.value].text;
+        }
 
             if (locList[locList.Count - 1] != currentLocation) //if not the same location 
             {
@@ -119,6 +124,11 @@ public class SaveLoad : MonoBehaviour
     public void LoadList()
     {
         GameObject content = GameObject.FindGameObjectWithTag("Content");
+
+        foreach (Transform child in content.transform)//clear old scrollview
+        {
+            Destroy(child.gameObject);
+        }
 
         for (int i = locList.Count-1; i >= 1; i--)
         {

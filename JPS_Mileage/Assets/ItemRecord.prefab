@@ -203,7 +203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -10, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &3256849689831905659
@@ -287,7 +287,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9068113799464252960}
-        m_MethodName: DeleteRecord
+        m_MethodName: AYSPopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -487,6 +487,9 @@ MonoBehaviour:
   location: {fileID: 3429958280672033001}
   miles: {fileID: 3555451248602490705}
   index: 0
+  deleteButton: {fileID: 5778200022567534644}
+  areYouSure: {fileID: 2238262567310076857, guid: 2cf58df5d61f2124dbe96642477bb8f6,
+    type: 3}
 --- !u!1 &9011758633898178081
 GameObject:
   m_ObjectHideFlags: 0

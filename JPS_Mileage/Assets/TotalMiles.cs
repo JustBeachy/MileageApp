@@ -8,18 +8,23 @@ public class TotalMiles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject mc = GameObject.FindGameObjectWithTag("MainCamera");
-        float holder = 0;
-        for (int i = mc.GetComponent<SaveLoad>().mileList.Count - 1; i >= 1; i--)
-        {
-            holder += float.Parse(mc.GetComponent<SaveLoad>().mileList[i]);
-        }
-        GetComponent<Text>().text = "Total Miles: "+holder.ToString("0.0");
+        CalculateTotal();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void CalculateTotal()
+    {
+        GameObject mc = GameObject.FindGameObjectWithTag("MainCamera");
+        float holder = 0;
+        for (int i = mc.GetComponent<SaveLoad>().mileList.Count - 1; i >= 1; i--)
+        {
+            holder += float.Parse(mc.GetComponent<SaveLoad>().mileList[i]);
+        }
+        GetComponent<Text>().text = "Total Miles: " + holder.ToString("0.0");
     }
 }

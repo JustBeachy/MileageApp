@@ -744,6 +744,14 @@
       <Project>{E6222DA0-5976-0687-D3BF-39B1FE616A5A}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="NativeShare.Editor.csproj">
+      <Project>{4AFF975D-A99D-36E6-74D2-E471C0BD2D96}</Project>
+      <Name>NativeShare.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NativeShare.Runtime.csproj">
+      <Project>{DEF92E57-0BB0-FBC9-2E86-D6D5F32D6369}</Project>
+      <Name>NativeShare.Runtime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -7,10 +7,13 @@ public class ListItem : MonoBehaviour
 {
     public Text date, location, miles;
     public int index;
+    public GameObject deleteButton;
+    public GameObject areYouSure;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (index != GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SaveLoad>().locList.Count - 1)//if it's not to on the list, remove the delete button.
+            deleteButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,5 +33,14 @@ public class ListItem : MonoBehaviour
         Destroy(gameObject);
 
         mc.Save();
+
+        mc.LoadList(); //reload indexes after deleting.
+        GameObject.FindGameObjectWithTag("Total").GetComponent<TotalMiles>().CalculateTotal();
+    }
+
+    public void AYSPopup()
+    {
+        var makePopup =Instantiate(areYouSure, GameObject.FindGameObjectWithTag("Canvas").transform);
+        makePopup.GetComponent<AreYouSure>().attachedObject = gameObject;
     }
 }
