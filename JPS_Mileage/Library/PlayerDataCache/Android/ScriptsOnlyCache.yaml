@@ -672,4 +672,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Alex/Desktop/MileageTest.apk
+  playerPath: C:/Users/Alex/Desktop/JPSMileage 1.0.apk

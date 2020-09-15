@@ -31,7 +31,6 @@ public class Export : MonoBehaviour
             saveString += mc.locList[i] + ",";
             saveString += mc.mileList[i] + "\n";
         }
-        saveString += GameObject.FindGameObjectWithTag("Total").GetComponent<Text>().text + "\n"; //add total to end
 
         ns.SetTitle("Mileage Records");
         ns.SetSubject("Mileage Records");
